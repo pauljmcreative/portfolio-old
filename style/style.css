@@ -135,7 +135,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100%;
-  background: url("../img/filler.png") center center/cover; }
+  background: url("../img/laptop.png") center center/cover; }
 /* ----------------- */
 
 /* ALL BUTTONS */
@@ -205,7 +205,7 @@ body {
 
 /* JUST INTRO SECTION NAME COLOR */
 .highlight {
-  color: #E31B6D; }
+  color: #FC4A1A; }
 /* --------------- */
 
 /* SECTION TITLES */
@@ -236,10 +236,10 @@ nav {
   bottom: 0;
   left: 0;
   position: absolute;
-  height: 50px;
+  height: 60px;
   width: 100%;
-  background: #1B242F;
-  border-bottom: 3px solid #04C2C9;
+  background: #212630;
+  border-bottom: 3px solid #1af2fc;
   text-align: left;
   z-index: 99; }
   nav.fixed {
@@ -254,7 +254,7 @@ nav {
     width: 100%;
     position: absolute;
     top: 53px;
-    background: #333;
+    background: #333a42;
     overflow: hidden;
     height: 0;
     transition: height .3s ease-out; }
@@ -269,7 +269,7 @@ nav {
       nav .link-wrap div:first-child {
         padding: 25px 20px 12px 20px; }
       nav .link-wrap div:hover {
-        color: #E31B6D; }
+        color: #FC4A1A; }
   nav .mdi-menu {
     position: absolute;
     right: 5vw;
@@ -278,7 +278,7 @@ nav {
     line-height: 36pt;
     top: 0; }
   nav .active {
-    color: #E31B6D; }
+    color: #FC4A1A; }
 /* -------------- */
 
 
@@ -391,7 +391,7 @@ nav {
     font-size: 10pt;
     transition: all .5s;
     cursor: pointer;
-    background: #E31B6D;
+    background: #FC4A1A;
     color: #fff;
     font-weight: 600;
     border: 0;
@@ -404,7 +404,7 @@ nav {
       pointer-events: initial;
       visibility: visible; }
     .modal-wrap .button:hover {
-      color: #E31B6D;
+      color: #FC4A1A;
       background: #fff; }
   .modal-wrap .carousel {
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25); }
@@ -539,7 +539,7 @@ section {
     section:nth-of-type(2) .bar.secondary {
       background-color: #C51675; }
       section:nth-of-type(2) .bar.secondary .tag {
-        background-color: #E31B6D; }
+        background-color: #FC4A1A; }
     section:nth-of-type(2) .bar span {
       z-index: 1;
       padding: 0 15px 0 0; }
@@ -569,7 +569,7 @@ section {
       overflow: hidden;
       height: 25px;
       border-radius: 1px;
-      background: #E31B6D;
+      background: #FC4A1A;
       transition: all .5s ease-in-out; }
       section:nth-of-type(3) .float-bar .row {
         top: 0;
@@ -600,7 +600,7 @@ section {
         bottom: 0;
         left: 0;
         position: absolute;
-        border: 2px solid #E31B6D;
+        border: 2px solid #FC4A1A;
         width: 170px;
         margin: 0 auto;
         font-size: 13pt;
@@ -611,7 +611,7 @@ section {
         section:nth-of-type(3) #gallery .mix .waypoint {
           background: #fff; }
         section:nth-of-type(3) #gallery .mix .button:hover {
-          background: #E31B6D;
+          background: #FC4A1A;
           color: #fff; }
         section:nth-of-type(3) #gallery .mix:nth-child(1) .card {
           background: url("../img/thumb-1.jpg") center center/cover; }
@@ -788,7 +788,7 @@ footer {
   footer .mdi-chevron-double-up {
     position: absolute;
     top: -25px;
-    background: #E31B6D;
+    background: #FC4A1A;
     font-size: 30pt;
     width: 47px;
     height: 50px;
@@ -799,7 +799,7 @@ footer {
     cursor: pointer;
     transition: background .5s; }
     footer .mdi-chevron-double-up:hover {
-      background: #fb1f79; }
+      background: #FC4A1A; }
   footer .icon-wrap .icon {
     overflow: hidden;
     transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
@@ -809,7 +809,7 @@ footer {
     position: relative;
     text-align: center;
     margin: 0 15px;
-    background: #262F38;
+    background: #212630;
     font-size: 18pt; }
   footer .icon-wrap .mdi {
     text-align: center;
@@ -833,7 +833,7 @@ footer {
     opacity: 0.6; }
     footer .footnote .highlight {
       font-family: 'Open Sans';
-      color: #E31B6D; }
+      color: #FC4A1A; }
   /* ---------------- */
 
 
@@ -1003,8 +1003,8 @@ footer {
   .animated.pop-in {
     animation: popIn 1s both; }
 
-  .canvas {
-    background: #252934; }
+  /* .canvas {
+    background: #252934; } */
 
   .button {
     font-size: 16pt; }
