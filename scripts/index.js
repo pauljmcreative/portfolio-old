@@ -23,6 +23,65 @@ $(function () {
     $('nav').addClass('desk');
   }
 
+  // TYPEWRITER INTRO
+  let TxtType = function (el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+  };
+
+  TxtType.prototype.tick = function () {
+    let i = this.loopNum % this.toRotate.length;
+    let fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+    let that = this;
+    let delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+    }
+
+    setTimeout(function () {
+      that.tick();
+    }, delta);
+  };
+
+  window.onload = function () {
+    let elements = document.getElementsByClassName('typewrite');
+    for (let i = 0; i < elements.length; i++) {
+      let toRotate = elements[i].getAttribute('data-type');
+      let period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+    }
+    // INJECT CSS
+    let css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+  };
+
+
 
   // NAV POSITION
   var navPos = $('nav').position().top;
@@ -49,7 +108,7 @@ $(function () {
     if (pos2 > $('#home').offset().top) { highlightLink('home'); }
     if (pos2 > $('#about').offset().top) { highlightLink('about'); }
     if (pos2 > $('#portfolio').offset().top) { highlightLink('portfolio'); }
-    if (pos2 > $('#blog').offset().top) { highlightLink('blog'); }
+    // if (pos2 > $('#blog').offset().top) { highlightLink('blog'); }
     if (pos2 > $('#contact').offset().top ||
       pos + $(window).height() === $(document).height()) {
       highlightLink('contact');
@@ -89,14 +148,6 @@ $(function () {
     $('.link-wrap').toggleClass('visible');
   });
 
-  $('.blog-wrap').hover(function () {
-    $('.blog-wrap').not(this).addClass('fade');
-    $(this).addClass("hover");
-  }, function () {
-    $(this).removeClass("hover");
-    $('.blog-wrap').removeClass('fade');
-  });
-
   posFilterBar($('.filter').first());
 
   $('.filter').click(function () {
@@ -112,6 +163,21 @@ $(function () {
     });
     $('.float-bar .row').css('left', (pos - origin) * -1);
   }
+
+
+  // FUN FACT CAROUSEL //
+  $("#slideshow > div:gt(0)").hide();
+
+  setInterval(function () {
+    $('#slideshow > div:first')
+      .fadeOut(0)
+      .next()
+      .fadeIn(0)
+      .end()
+      .appendTo('#slideshow');
+  }, 5000);
+  ///////////////////////////////////////////////////////////////
+
 
   // GALLERY
   $('#gallery').mixItUp({});
@@ -149,11 +215,12 @@ $(function () {
   setTimeout(function () { onScrollInit($('.waypoint')) }, 10);
 
   // CONTACT FORM
+
   $('#contact-form').submit(function (e) {
     e.preventDefault();
 
     $.ajax({
-      url: "https://formspree.io/mattwilliams85@gmail.com",
+      url: "https://formspree.io/paul@pauljmphoto.com",
       method: "POST",
       data: { message: $('form').serialize() },
       dataType: "json"
